@@ -1,0 +1,51 @@
+/* nav */
+
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+
+  color: white;
+  /* background-color: rgb(64, 64, 64); */
+}
+
+nav .title {
+  font-size: 40px;
+}
+
+nav .button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+nav .dropdown-button {
+  display: none;
+}
+
+nav .button-container .button {
+  padding: 10px;
+  margin-left: 20px;
+}
+
+
+nav .button-container .button:hover,
+nav .dropdown-button {
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 960px) {
+  nav .button-container {
+    display: none;
+  }
+
+  nav .dropdown-button {
+    display: block;
+  }
+}

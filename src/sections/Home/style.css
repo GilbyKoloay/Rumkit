@@ -1,0 +1,36 @@
+/* section - home */
+
+#section-home {
+  background-color: orange;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding: 20px;
+
+  background-image: url('../../images/ryan.png');
+  background-size: cover;
+}
+
+#section-home .title {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#section-home .subtitle {
+  font-size: 28px;
+}
+
+#section-home .button {
+  margin-top: 50px;
+  font-size: 22px;
+  border: 2px solid white;
+  border-radius: 100px;
+  padding: 2px 30px 6px 30px;
+}
+#section-home .button:hover {
+  background-color: #2dca98;
+  cursor: pointer;
+}
