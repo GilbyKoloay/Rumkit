@@ -4,6 +4,7 @@ import './App.css';
 import {
   Home,
   About,
+  Facts,
   Services,
   Portfolio,
   Team,
@@ -22,6 +23,7 @@ export default function App() {
       <main>
         <Home />
         <About />
+        <Facts />
         <Services />
         <Portfolio />
         <Team />
