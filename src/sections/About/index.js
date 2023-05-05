@@ -1,3 +1,4 @@
+// styles
 import '../../App.css';
 import './style.css';
 

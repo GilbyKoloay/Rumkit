@@ -1,5 +1,92 @@
 /* section - portfolio */
 
 #section-portfolio {
+  padding: 80px 100px 60px 100px;
   background-color: #F7F7F7;
+}
+
+#section-portfolio .buttons-container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+}
+
+#section-portfolio .buttons-container .button,
+#section-portfolio .buttons-container .button-selected {
+  font-size: 14px;
+  color: #666666;
+  background-color: #FFFFFF;
+  padding: 12px 18px 14px 18px;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+#section-portfolio .buttons-container .button:hover {
+  cursor: pointer;
+  color: #FFFFFF;
+  background-color: #2DC997;
+}
+
+#section-portfolio .buttons-container .button-selected {
+  color: #FFFFFF;
+  background-color: #2DC997;
+}
+
+#section-portfolio .items-container {
+  margin-top: 36px;
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+}
+
+#section-portfolio .items-container .item {
+  height: 300px;
+  width: 380px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#section-portfolio .items-container .item:hover .item-info {
+  display: flex;
+}
+
+#section-portfolio .items-container .item .item-info {
+  padding: 20px 16px;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2DC997;
+}
+
+#section-portfolio .items-container .item .item-info .texts-container div:first-child {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#section-portfolio .items-container .item .item-info .texts-container div:last-child {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#section-portfolio .items-container .item .item-info .icons-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#section-portfolio .items-container .item .item-info .icons-container div:hover {
+  cursor: pointer;
+}
+
+#section-portfolio .items-container .item .item-info .icons-container div:first-child {
+  margin-right: 16px;
+}
+
+
+
+@media (max-width: 964px) {
+  #section-portfolio .items-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
 }
