@@ -10,20 +10,20 @@ import { Ryan } from '../../images';
 
 
 const Portfolios = [
-  {type: 'App', name: 'App 1', img: Ryan},
-  {type: 'Web', name: 'Web 3', img: Ryan},
-  {type: 'App', name: 'App 2', img: Ryan},
-  {type: 'Card', name: 'Card 2', img: Ryan},
-  {type: 'Web', name: 'Web 2', img: Ryan},
-  {type: 'App', name: 'App 3', img: Ryan},
-  {type: 'Card', name: 'Card 1', img: Ryan},
-  {type: 'Card', name: 'Card 3', img: Ryan},
-  {type: 'Web', name: 'Web 3', img: Ryan}
+  {img: Ryan, type: 'App', name: 'App 1'},
+  {img: Ryan, type: 'Web', name: 'Web 3'},
+  {img: Ryan, type: 'App', name: 'App 2'},
+  {img: Ryan, type: 'Card', name: 'Card 2'},
+  {img: Ryan, type: 'Web', name: 'Web 2'},
+  {img: Ryan, type: 'App', name: 'App 3'},
+  {img: Ryan, type: 'Card', name: 'Card 1'},
+  {img: Ryan, type: 'Card', name: 'Card 3'},
+  {img: Ryan, type: 'Web', name: 'Web 3'}
 ];
 
 
 
-const Item = ({ type, name, img }) => {
+const Item = ({ img, type, name}) => {
   return (
     <div className='item' style={{backgroundImage: `url(${img})`}}>
       <div className='item-info'>
@@ -58,10 +58,10 @@ export default function Portfolio() {
         <div className={`${(selected === 'Web') ? 'button-selected' : 'button'}`} onClick={() => setSelected('Web')}>Web</div>
       </div>
       <div className='items-container'>
-        {(selected === 'All') && Portfolios.map(item => <Item type={item.type} name={item.name} img={item.img} />)}
-        {(selected === 'App') && Portfolios.map(item => (item.type === 'App') && <Item type={item.type} name={item.name} img={item.img} />)}
-        {(selected === 'Card') && Portfolios.map(item => (item.type === 'Card') && <Item type={item.type} name={item.name} img={item.img} />)}
-        {(selected === 'Web') && Portfolios.map(item => (item.type === 'Web') && <Item type={item.type} name={item.name} img={item.img} />)}
+        {(selected === 'All') && Portfolios.map(item => <Item img={item.img} type={item.type} name={item.name} />)}
+        {(selected === 'App') && Portfolios.map(item => (item.type === 'App') && <Item img={item.img} type={item.type} name={item.name} />)}
+        {(selected === 'Card') && Portfolios.map(item => (item.type === 'Card') && <Item img={item.img} type={item.type} name={item.name} />)}
+        {(selected === 'Web') && Portfolios.map(item => (item.type === 'Web') && <Item img={item.img} type={item.type} name={item.name} />)}
       </div>
     </section>
   );

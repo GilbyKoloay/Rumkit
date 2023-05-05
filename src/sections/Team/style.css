@@ -1,2 +1,57 @@
 /* section - team */
 
+#section-team .items-container {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+}
+
+#section-team .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#section-team .item img {
+  height: 300px;
+  width: 300px;
+}
+
+#section-team .item .name {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #666666;
+}
+
+#section-team .item .position {
+  font-size: 14px;
+  font-style: italic;
+}
+
+#section-team .item .icons-container {
+  margin-top: 16px;
+  display: flex;
+}
+
+#section-team .item .icons-container .icon {
+  margin-right: 4px;
+}
+#section-team .item .icons-container .icon:last-child {
+  margin: 0;
+}
+#section-team .item .icons-container .icon:hover {
+  cursor: pointer;
+  background-color: #2DC997;
+}
+
+
+
+@media (max-width: 964px) {
+  #section-team .items-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+}
