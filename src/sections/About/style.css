@@ -1,0 +1,62 @@
+/* section - about */
+
+#section-about {
+  display: flex;
+  padding: 80px 240px;
+}
+
+#section-about div {
+  flex: 1;
+}
+
+#section-about img {
+  flex: 1;
+  height: 500px;
+}
+
+#section-about .title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #202020;
+  margin-bottom: 26px;
+}
+
+#section-about p {
+  font-size: 1rem;
+  color: #606060;
+}
+
+#section-about .item-container .item {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#section-about .item-container .item img {
+  height: 100px;
+  width: 100px;
+  flex: 0;
+  border-radius: 100%;
+}
+
+#section-about .item-container .item .text-container {
+  margin-left: 20px;
+  flex: 1;
+}
+
+#section-about .item-container .item .text-container .subtitle {
+  font-size: 18px;
+}
+
+#section-about .item-container .item p {
+  font-size: 14px;
+  color: #606060;
+}
+
+@media (max-width: 964px) {
+  #section-about {
+    flex-direction: column-reverse;
+    padding: 80px 120px;
+  }
+}
