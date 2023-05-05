@@ -1,0 +1,59 @@
+/* section - services */
+
+#section-services .items-container {
+  padding: 0 100px;
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 60px
+}
+
+#section-services .items-container .item {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #E6E6E6;
+  background-color: #FAFAFA;
+}
+
+#section-services .items-container .item img {
+  position: relative;
+  top: -36px;
+  height: 72px;
+  width: 72px;
+  border-radius: 100%;
+  border: 6px solid white;
+}
+#section-services .items-container .item img :hover {
+  cursor: pointer;
+}
+
+#section-services .items-container .item .subtitle {
+  margin-top: -16px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #111111;
+}
+#section-services .items-container .item .subtitle :hover {
+  cursor: pointer;
+}
+
+#section-services .items-container .item .text {
+  margin-top: 16px;
+  padding-bottom: 36px;
+  text-align: center;
+  font-size: 1rem;
+  color: #666666;
+}
+
+
+
+@media (max-width: 964px) {
+  #section-services .items-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+  }
+}

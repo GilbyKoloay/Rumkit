@@ -1,26 +1,11 @@
 /* section - facts */
 
 #section-facts {
-  padding: 80px 60px;
   background-color: #F7F7F7;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#section-facts .title {
-  font-size: 32px;
-  color: #111111;
-  font-weight: bold;
-}
-
-#section-facts p {
-  color: #999999;
 }
 
 #section-facts .items-container {
-  margin-top: 40px;
-
+  margin-top: 70px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 240px;
@@ -30,7 +15,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   text-align: center;
 }
 
@@ -42,6 +26,7 @@
 #section-facts .items-container .item .name {
   font-size: 14px;
   color: #666666;
+  padding-bottom: 20px;
 }
 
 

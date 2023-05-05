@@ -1,12 +1,13 @@
+import '../../App.css';
 import './style.css';
 
 
 
 export default function Facts() {
   return (
-    <section id='section-facts'>
-      <div className='title'>FACTS</div>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+    <section id='section-facts' className='section'>
+      <div className='section-title'>FACTS</div>
+      <p className='section-paragraph'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
       <div className='items-container'>
         <div className='item'>
           <div className='number'>232</div>

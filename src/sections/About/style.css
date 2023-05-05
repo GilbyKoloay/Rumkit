@@ -1,8 +1,8 @@
 /* section - about */
 
 #section-about {
-  display: flex;
-  padding: 80px 240px;
+  padding: 80px;
+  flex-direction: row;
 }
 
 #section-about div {
@@ -14,20 +14,17 @@
   height: 500px;
 }
 
-#section-about .title {
-  font-size: 32px;
-  font-weight: bold;
-  color: #202020;
-  margin-bottom: 26px;
+#section-about .section-title {
+  margin-top: 10px;
 }
 
-#section-about p {
-  font-size: 1rem;
-  color: #606060;
+#section-about .section-paragraph {
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 #section-about .item-container .item {
-  margin-top: 28px;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,6 +44,9 @@
 
 #section-about .item-container .item .text-container .subtitle {
   font-size: 18px;
+}
+#section-about .item-container .item .text-container .subtitle :hover {
+  cursor: pointer;
 }
 
 #section-about .item-container .item p {
