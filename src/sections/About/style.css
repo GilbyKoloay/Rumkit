@@ -45,7 +45,7 @@
 #section-about .item-container .item .text-container .subtitle {
   font-size: 18px;
 }
-#section-about .item-container .item .text-container .subtitle :hover {
+#section-about .item-container .item .text-container .subtitle:hover {
   cursor: pointer;
 }
 

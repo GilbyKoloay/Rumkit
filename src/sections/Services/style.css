@@ -27,7 +27,7 @@
   border-radius: 100%;
   border: 6px solid white;
 }
-#section-services .items-container .item img :hover {
+#section-services .items-container .item img:hover {
   cursor: pointer;
 }
 
@@ -37,7 +37,7 @@
   font-weight: bold;
   color: #111111;
 }
-#section-services .items-container .item .subtitle :hover {
+#section-services .items-container .item .subtitle:hover {
   cursor: pointer;
 }
 

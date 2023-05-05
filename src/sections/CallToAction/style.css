@@ -1,0 +1,50 @@
+/* section - call to action */
+
+#section-callToAction {
+  padding: 80px 100px 60px 100px;
+  flex-direction: row;
+  background-image: url('../../images/ryan.png');
+}
+
+#section-callToAction div {
+  color: #FFFFFF;
+}
+
+#section-callToAction .texts-container {
+  flex: 3;
+}
+
+#section-callToAction .button-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#section-callToAction .texts-container .section-paragraph {
+  margin-top: 20px;
+}
+
+#section-callToAction .button-container .button {
+  width: fit-content;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 8px 30px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50px;
+}
+#section-callToAction .button-container .button:hover {
+  background-color: #2DCA98;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 964px) {
+  #section-callToAction {
+    flex-direction: column;
+  }
+
+  #section-callToAction .button-container {
+    margin-top: 20px;
+  }
+}

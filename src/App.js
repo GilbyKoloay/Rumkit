@@ -6,6 +6,8 @@ import {
   About,
   Facts,
   Services,
+  CallToAction,
+
   Portfolio,
   Team,
   Contact
@@ -25,6 +27,8 @@ export default function App() {
         <About />
         <Facts />
         <Services />
+        <CallToAction />
+
         <Portfolio />
         <Team />
         <Contact />
