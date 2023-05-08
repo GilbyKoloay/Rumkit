@@ -40,7 +40,7 @@ export default function Team() {
       <div className='section-title'>TEAM</div>
       <div className='section-paragraph'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</div>
       <div className='items-container'>
-        {people.map(item => <Item img={item.img} name={item.name} position={item.position} />)}
+        {people.map((item, index) => <Item key={index} img={item.img} name={item.name} position={item.position} />)}
       </div>
     </section>
   );

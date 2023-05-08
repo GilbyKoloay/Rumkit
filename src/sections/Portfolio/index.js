@@ -58,10 +58,10 @@ export default function Portfolio() {
         <div className={`${(selected === 'Web') ? 'button-selected' : 'button'}`} onClick={() => setSelected('Web')}>Web</div>
       </div>
       <div className='items-container'>
-        {(selected === 'All') && Portfolios.map(item => <Item img={item.img} type={item.type} name={item.name} />)}
-        {(selected === 'App') && Portfolios.map(item => (item.type === 'App') && <Item img={item.img} type={item.type} name={item.name} />)}
-        {(selected === 'Card') && Portfolios.map(item => (item.type === 'Card') && <Item img={item.img} type={item.type} name={item.name} />)}
-        {(selected === 'Web') && Portfolios.map(item => (item.type === 'Web') && <Item img={item.img} type={item.type} name={item.name} />)}
+        {(selected === 'All') && Portfolios.map((item, index) => <Item key={index} img={item.img} type={item.type} name={item.name} />)}
+        {(selected === 'App') && Portfolios.map((item, index) => (item.type === 'App') && <Item key={index} img={item.img} type={item.type} name={item.name} />)}
+        {(selected === 'Card') && Portfolios.map((item, index) => (item.type === 'Card') && <Item key={index} img={item.img} type={item.type} name={item.name} />)}
+        {(selected === 'Web') && Portfolios.map((item, index) => (item.type === 'Web') && <Item key={index} img={item.img} type={item.type} name={item.name} />)}
       </div>
     </section>
   );

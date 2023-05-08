@@ -21,7 +21,7 @@ const Input = ({ label, icon='icon', type='input', placeholder, value, onChange 
             onChange={e => onChange(e.target.value)}
           />
         : (type === 'textarea') && (
-          <textarea placeholder={placeholder} onChange={e => onChange(e.target.value)}>{value}</textarea>
+          <textarea placeholder={placeholder} value={value} onChange={e => onChange(e.target.value)}>{value}</textarea>
         )
       }
     </div>
