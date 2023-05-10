@@ -5,8 +5,12 @@ import './style.css';
 
 export default function Header() {
   return (
-    <div id='header-component' className='component'>
-      Header
-    </div>
+    <header id='header-component' className='component'>
+      <div className='black' />
+      <div className='header'>
+        <div className='big'>Selamat Datang RUMKIT</div>
+        <div className='small'>Rumah Sakit Bhayangkara</div>
+      </div>
+    </header>
   );
 };

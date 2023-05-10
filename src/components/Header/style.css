@@ -1,0 +1,27 @@
+/* component - header */
+
+#header-component .black {
+  height: 100px;
+  background-color: #000000;
+}
+
+#header-component .header {
+  background-color: #ECECEC;
+
+  padding: 32px;
+  display: flex;
+  align-items: center;
+}
+
+#header-component .header .big {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#header-component .header .small {
+  margin-left: 16px;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: #808080;
+}

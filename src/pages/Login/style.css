@@ -11,14 +11,18 @@
 #login-page form {
   background-color: #FFFFFF;
   
+  display: flex;
+  flex-direction: column;
   padding: 50px;
 }
 
 #login-page form img {
   margin-bottom: 30px;
+  height: 100px;
+  width: 100px;
 }
 
-#login-page form div:nth-child(3) {
+#login-page form input:nth-child(3) {
   margin-top: 20px;
 }
 
