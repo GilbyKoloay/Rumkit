@@ -1,0 +1,27 @@
+/* component - table */
+
+#table-component {
+  padding: 24px;
+}
+
+#table-component .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#table-component .tambahButton {
+  margin-top: 12px;
+  border: 0;
+  border-radius: 4px;
+  background-color: var(--tambahButtonColor);
+
+  padding: 8px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+#table-component .tambahButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
