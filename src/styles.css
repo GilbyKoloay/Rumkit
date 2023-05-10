@@ -61,3 +61,8 @@ main .changeMainButton:hover {
   cursor: pointer;
   opacity: 0.8;
 }
+
+main table,
+main form {
+  margin-top: 24px;
+}
