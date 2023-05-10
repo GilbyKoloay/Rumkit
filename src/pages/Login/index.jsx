@@ -8,7 +8,7 @@ import './style.css';
 import { Input } from '../../components';
 
 // images
-import { LoginImage } from '../../assets/images';
+import { Login as LoginImage } from '../../assets/images';
 
 
 
@@ -20,7 +20,7 @@ export default function Login() {
 
 
 
-  function loginOnPress(e) {
+  function loginOnClick(e) {
     e.preventDefault();
 
     navigate('/dashboard');
@@ -39,7 +39,7 @@ export default function Login() {
           value={password}
           onChange={setPassword}
         />
-        <button type='submit' onClick={e => loginOnPress(e)}>LOGIN</button>
+        <button type='submit' onClick={e => loginOnClick(e)}>LOGIN</button>
       </form>
     </div>
   );

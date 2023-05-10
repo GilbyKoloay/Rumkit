@@ -1,6 +1,6 @@
 // images
 
-import LoginImage from './LoginImage.png';
+import Login from './Login.png';
 import Dashboard from './Dashboard.png';
 
-export { LoginImage, Dashboard };
+export { Login, Dashboard };

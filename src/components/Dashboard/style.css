@@ -1,0 +1,48 @@
+/* component - dashboard */
+
+#dashboard-component {
+  background-image: linear-gradient(to bottom, var(--dashboardTopColor), var(--dashboardBottomColor));
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#dashboard-component img {
+  height: 100px;
+  width: 100px;
+  align-self: center;
+}
+
+#dashboard-component .dashboardButton {
+  margin-top: 36px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#dashboard-component .dashboardButton img {
+  height: 32px;
+  width: 32px;
+  margin-right: 24px;
+}
+
+#dashboard-component .button {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #00000000;
+
+  padding: 16px 4px;
+}
+#dashboard-component .button:hover {
+  cursor: pointer;
+  border: 1px solid #808080;
+  opacity: 0.8;
+}
+
+#dashboard-component .exitButton {
+  margin-top: 36px;
+  
+  color: var(--signOutColor);
+}

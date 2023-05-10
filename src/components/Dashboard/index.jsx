@@ -1,12 +1,55 @@
+import { useNavigate } from 'react-router-dom';
+
 // styles
 import './style.css';
+
+// images
+import { Dashboard as DashboardImage } from '../../assets/images';
 
 
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+
+
+
+  function userOnClick() {
+    navigate('/user');
+  }
+
+  function laporanOnClick() {
+    navigate('/laporan');
+  }
+
+  function laporanHarianOnClick() {
+    navigate('/laporan-harian');
+  }
+
+  function laporanBulananOnClick() {
+    navigate('/laporan-bulanan');
+  }
+
+  function signOutOnClick() {
+    navigate('/login');
+  }
+
+
+
   return (
-    <div id='dashboard-component'>
-      Dashboard
+    <div id='dashboard-component' className='component'>
+      <img src={DashboardImage} alt='dashboard' />
+      
+      <div className='dashboardButton button'>
+        <img src={DashboardImage} alt='icon' />
+        <div className='text'>Dashboard</div>
+      </div>
+
+      <div className='button' onClick={userOnClick}>User</div>
+      <div className='button' onClick={laporanOnClick}>Laporan</div>
+      <div className='button' onClick={laporanHarianOnClick}>Laporan Harian</div>
+      <div className='button' onClick={laporanBulananOnClick}>Laporan Bulanan</div>
+
+      <div className='exitButton button' onClick={signOutOnClick}>Sign Out</div>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 :root {
   --loginButtonColor: #2336AF;
-  --dashboardColor: #4FA0CA;
+  --dashboardTopColor: #E3E3F0;
+  --dashboardBottomColor: #4FA0CA;
   --tambahButtonColor: #11E2CB;
-  --blueLight: #3485E5;
+  --signOutColor: #3485E5;
   --simpanButtonColor: #404B59;
 }
 
@@ -19,4 +20,15 @@ body {
 #root,
 #root .page {
   height: 100%;
+}
+
+.pageDashboard {
+  display: flex;
+  flex-direction: row;
+}
+.pageDashboard #dashboard-component {
+  flex: 1;
+}
+.pageDashboard main {
+  flex: 4;
 }
