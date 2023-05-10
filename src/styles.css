@@ -2,7 +2,6 @@
   --loginButtonColor: #2336AF;
   --dashboardTopColor: #E3E3F0;
   --dashboardBottomColor: #4FA0CA;
-  --tambahButtonColor: #11E2CB;
   --signOutColor: #3485E5;
   --simpanButtonColor: #404B59;
 }
@@ -22,13 +21,43 @@ body {
   height: 100%;
 }
 
-.pageDashboard {
+
+
+.dashboard {
   display: flex;
   flex-direction: row;
 }
-.pageDashboard #dashboard-component {
+.dashboard #dashboard-component {
   flex: 1;
 }
-.pageDashboard main {
+.dashboard .mainWrapper {
   flex: 4;
+}
+
+
+
+main {
+  padding: 24px;
+}
+
+main .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+main .changeMainButton {
+  margin-top: 12px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #11E2CB;
+
+  padding: 8px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+main .changeMainButton:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }

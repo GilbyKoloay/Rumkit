@@ -13,6 +13,10 @@ export default function Dashboard() {
 
 
 
+  function dashboardOnClick() {
+    navigate('/dashboard');
+  }
+
   function userOnClick() {
     navigate('/user');
   }
@@ -39,7 +43,7 @@ export default function Dashboard() {
     <div id='dashboard-component' className='component'>
       <img src={DashboardImage} alt='dashboard' />
       
-      <div className='dashboardButton button'>
+      <div className='dashboardButton button' onClick={dashboardOnClick}>
         <img src={DashboardImage} alt='icon' />
         <div className='text'>Dashboard</div>
       </div>

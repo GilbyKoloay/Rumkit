@@ -3,15 +3,12 @@ import './style.css';
 
 
 
-export default function Table({ title='<table title>', tambahOnClick=() => console.log('<tambah onClick>') }) {
+export default function Table() {
   return (
-    <div id='table-component' className='component'>
-      <div className='title'>{title}</div>
-      <button className='tambahButton' onClick={tambahOnClick}>Tambah</button>
-
+    <main id='table-component' className='component'>
       <table>
         
       </table>
-    </div>
+    </main>
   );
 };

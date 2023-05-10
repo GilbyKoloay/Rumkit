@@ -2,24 +2,18 @@
 import './style.css';
 
 // components
-import { Dashboard as DashboardComponent, Header, Table } from '../../components';
+import { Dashboard as DashboardComponent, Header } from '../../components';
 
 
 
 export default function Dashboard() {
-  function tambahOnClick() {
-    console.log('hello world');
-  }
-
-
-
   return (
-    <div id='dashboard-page' className='page pageDashboard'>
+    <div id='dashboard-page' className='page dashboard'>
       <DashboardComponent />
-      <main>
+      <div className='mainWrapper'>
         <Header />
-        <Table title='Data User' tambahOnClick={tambahOnClick} />
-      </main>
+        <main></main>
+      </div>
     </div>
   );
 };
