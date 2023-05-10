@@ -1,6 +1,22 @@
+:root {
+  --loginButtonColor: #2336AF;
+  --dashboardColor: #4FA0CA;
+  --tambahButtonColor: #11E2CB;
+  --blueLight: #3485E5;
+  --simpanButtonColor: #404B59;
+}
+
+
+
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
 
   font-family: 'Poppins', sans-serif;
+}
+
+#root,
+#root .page {
+  height: 100%;
 }

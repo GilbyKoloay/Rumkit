@@ -1,0 +1,9 @@
+/* component - input */
+
+#input-component input {
+  width: 360px;
+  border: 1px solid #ECECEC;
+
+  padding: 20px 40px;
+  font-size: 16px;
+}

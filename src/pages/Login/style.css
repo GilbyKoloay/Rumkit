@@ -1,0 +1,38 @@
+/* page - login */
+
+#login-page {
+  background-color: #F2F2F2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-page form {
+  background-color: #FFFFFF;
+  
+  padding: 50px;
+}
+
+#login-page form img {
+  margin-bottom: 30px;
+}
+
+#login-page form div:nth-child(3) {
+  margin-top: 20px;
+}
+
+#login-page form button {
+  margin-top: 30px;
+  border: 0;
+  border-radius: 10px;
+  background-color: var(--loginButtonColor);
+
+  padding: 20px 52px;
+  font-family: 'Poppins', sans-serif;
+  color: #FFFFFF;
+}
+#login-page form button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
