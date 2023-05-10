@@ -1,5 +1,7 @@
 // functions
 
-import send from './send';
+import send from './send.js';
+import readFromJson from './readFromJson.js';
+import writeToJson from './writeToJson.js';
 
-export { send };
+export { send, readFromJson, writeToJson };
