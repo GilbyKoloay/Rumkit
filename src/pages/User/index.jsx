@@ -71,7 +71,7 @@ export default function User() {
       <div className='mainWrapper'>
         <Header />
         <main>
-          <div className='title'>Data User</div>
+          <div className='title'>{(main === 'Input') && 'Tambah '}Data User</div>
 
           {(main === 'View') && <button className='changeMainButton' onClick={changeMainOnClick}>Tambah</button>}
           {(main === 'Input') && <button className='changeMainButton' onClick={changeMainOnClick}>Kembali</button>}

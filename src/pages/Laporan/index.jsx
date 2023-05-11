@@ -72,7 +72,7 @@ export default function Laporan() {
       <div className='mainWrapper'>
         <Header />
         <main>
-          <div className='title'>Data Laporan</div>
+          <div className='title'>{(main === 'Input') && 'Tambah '}Data Laporan</div>
 
           {(main === 'View') && <button className='changeMainButton' onClick={changeMainOnClick}>Tambah</button>}
           {(main === 'Input') && <button className='changeMainButton' onClick={changeMainOnClick}>Kembali</button>}
