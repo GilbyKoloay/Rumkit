@@ -29,7 +29,7 @@ export default function User() {
       password: '',
       nama: '',
       level: 'Admin',
-      foto: '',
+      foto: ''
     });
   }
 
