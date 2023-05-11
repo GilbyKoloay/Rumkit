@@ -1,21 +1,24 @@
 import express from 'express';
 
-// controllers - user
+// login
+import login from './controllers/login/login.js';
+
+// user
 import userGetAll from './controllers/user/getAll.js';
 import userAdd from './controllers/user/add.js';
 import userDelete from './controllers/user/delete.js';
 
-// controllers - laporan
+// laporan
 import laporanGetAll from './controllers/laporan/getAll.js';
 import laporanAdd from './controllers/laporan/add.js';
 import laporanDelete from './controllers/laporan/delete.js';
 
-// controllers - laporanHarian
+// laporanHarian
 import laporanHarianGetAll from './controllers/laporanHarian/getAll.js';
 import laporanHarianAdd from './controllers/laporanHarian/add.js';
 import laporanHarianDelete from './controllers/laporanHarian/delete.js';
 
-// controllers - laporanBulanan
+// laporanBulanan
 import laporanBulananGetAll from './controllers/laporanBulanan/getAll.js';
 import laporanBulananAdd from './controllers/laporanBulanan/add.js';
 import laporanBulananDelete from './controllers/laporanBulanan/delete.js';
@@ -25,6 +28,9 @@ import laporanBulananDelete from './controllers/laporanBulanan/delete.js';
 const router = express.Router();
 
 
+
+// login
+router.post('/login', login);
 
 // user
 router.get('/user/getAll', userGetAll);
