@@ -10,6 +10,11 @@ import laporanGetAll from './controllers/laporan/getAll.js';
 import laporanAdd from './controllers/laporan/add.js';
 import laporanDelete from './controllers/laporan/delete.js';
 
+// controllers - laporanHarian
+import laporanHarianGetAll from './controllers/laporanHarian/getAll.js';
+import laporanHarianAdd from './controllers/laporanHarian/add.js';
+import laporanHarianDelete from './controllers/laporanHarian/delete.js';
+
 
 
 const router = express.Router();
@@ -25,6 +30,11 @@ router.delete('/user/delete:index', userDelete);
 router.get('/laporan/getAll', laporanGetAll);
 router.post('/laporan/add', laporanAdd);
 router.delete('/laporan/delete:index', laporanDelete);
+
+// laporanHarian
+router.get('/laporanHarian/getAll', laporanHarianGetAll);
+router.post('/laporanHarian/add', laporanHarianAdd);
+router.delete('/laporanHarian/delete:index', laporanHarianDelete);
 
 
 
