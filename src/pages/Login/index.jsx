@@ -7,12 +7,15 @@ import './style.css';
 // component
 import { Input } from '../../components';
 
+// functions
+import { Fetch, encrypt } from '../../functions';
+
 // images
 import { Login as LoginImage } from '../../assets/images';
 
 
 
-export default function Login() {
+export default function Login({ setUserType }) {
   const navigate = useNavigate();
 
   const [user, setUser] = useState('');
@@ -23,7 +26,15 @@ export default function Login() {
   function loginOnClick(e) {
     e.preventDefault();
 
-    navigate('/dashboard');
+    Fetch('/login', 'POST', {
+      username: user,
+      password: encrypt(password)
+    }).then(res => {
+      if(res.success) {
+        setUserType(res.data);
+        navigate('/dashboard');
+      }
+    });
   }
 
 

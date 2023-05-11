@@ -12,11 +12,11 @@ import {
 } from '../../components';
 
 // functions
-import { Fetch } from '../../functions';
+import { Fetch, encrypt } from '../../functions';
 
 
 
-export default function User() {
+export default function User({ userType, setUserType }) {
   const [main, setMain] = useState('View');
   const [user, setUser] = useState([]);
   const [input, setInput] = useState({});
@@ -49,7 +49,7 @@ export default function User() {
   function simpanOnClick(e) {
     e.preventDefault();
 
-    Fetch('/user/add', 'POST', input).then(res => {
+    Fetch('/user/add', 'POST', {...input, password: encrypt(input.password)}).then(res => {
       if(res.success) {
         setUser(res.data);
         setMain('View');
@@ -67,7 +67,7 @@ export default function User() {
 
   return (
     <div id='user-page' className='page dashboard'>
-      <DashboardComponent />
+      <DashboardComponent setUserType={setUserType} />
       <div className='mainWrapper'>
         <Header />
         <main>

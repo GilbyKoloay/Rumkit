@@ -16,7 +16,7 @@ import { Fetch } from '../../functions';
 
 
 
-export default function LaporanHarian() {
+export default function LaporanHarian({ userType, setUserType }) {
   const [main, setMain] = useState('View');
   const [laporanHarian, setLaporanHarian] = useState([]);
   const [input, setInput] = useState({});
@@ -65,7 +65,7 @@ export default function LaporanHarian() {
 
   return (
     <div id='laporanHarian-page' className='page dashboard'>
-      <DashboardComponent />
+      <DashboardComponent setUserType={setUserType} />
       <div className='mainWrapper'>
         <Header />
         <main>

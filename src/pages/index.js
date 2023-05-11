@@ -6,7 +6,6 @@ import User from './User';
 import Laporan from './Laporan';
 import LaporanHarian from './LaporanHarian';
 import LaporanBulanan from './LaporanBulanan';
-import NotFound from './NotFound'
 
 export {
   Login,
@@ -14,6 +13,5 @@ export {
   User,
   Laporan,
   LaporanHarian,
-  LaporanBulanan,
-  NotFound
+  LaporanBulanan
 };

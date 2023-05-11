@@ -1,10 +1,5 @@
 /* component - header */
 
-#header-component .black {
-  height: 100px;
-  background-color: #000000;
-}
-
 #header-component .header {
   background-color: #ECECEC;
 

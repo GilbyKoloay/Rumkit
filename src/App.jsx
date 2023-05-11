@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
 
 // pages
 import {
@@ -7,25 +13,38 @@ import {
   User,
   Laporan,
   LaporanHarian,
-  LaporanBulanan,
-  NotFound
+  LaporanBulanan
 } from './pages';
 
 
 
 export default function App() {
+  const [userType, setUserType] = useState(null);
+
+  useEffect(() => {
+    console.log('userType', userType);
+  });
+
+
+
   return (
     <BrowserRouter>
       <Routes>
-        {/* dev */} <Route path='/' element={<Login />} />
-        
-        <Route path='/login' element={<Login />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/user' element={<User />} />
-        <Route path='/laporan' element={<Laporan />} />
-        <Route path='/laporan-harian' element={<LaporanHarian />} />
-        <Route path='/laporan-bulanan' element={<LaporanBulanan />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='/login' element={<Login setUserType={setUserType} />} />
+        {(userType) ? (
+          <>
+            <Route path='*' element={<Navigate to='/dashboard' />} />
+            <Route path='/dashboard' element={<Dashboard userType={userType} setUserType={setUserType} />} />
+            <Route path='/user' element={<User userType={userType} setUserType={setUserType} />} />
+            <Route path='/laporan' element={<Laporan userType={userType} setUserType={setUserType} />} />
+            <Route path='/laporan-harian' element={<LaporanHarian userType={userType} setUserType={setUserType} />} />
+            <Route path='/laporan-bulanan' element={<LaporanBulanan userType={userType} setUserType={setUserType} />} />
+          </>
+        ) : (
+          <>
+            <Route path='*' element={<Navigate to='/login' />} />
+          </>
+        )}
       </Routes>
     </BrowserRouter>
   );

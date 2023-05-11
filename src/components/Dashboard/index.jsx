@@ -6,9 +6,12 @@ import './style.css';
 // images
 import { Dashboard as DashboardImage } from '../../assets/images';
 
+// icons
+import { Home } from '../../assets/icons';
 
 
-export default function Dashboard() {
+
+export default function Dashboard({ setUserType }) {
   const navigate = useNavigate();
 
 
@@ -34,6 +37,7 @@ export default function Dashboard() {
   }
 
   function signOutOnClick() {
+    setUserType(null);
     navigate('/login');
   }
 

@@ -16,7 +16,7 @@ import { Fetch } from '../../functions';
 
 
 
-export default function Laporan() {
+export default function Laporan({ userType, setUserType }) {
   const [main, setMain] = useState('View');
   const [laporan, setLaporan] = useState([]);
   const [input, setInput] = useState({});
@@ -30,7 +30,7 @@ export default function Laporan() {
       jam: '',
       deskripsi: '',
       nama: '',
-      status: 'INI APA CUK'
+      status: 'Permintaan'
     });
   }
 
@@ -50,7 +50,11 @@ export default function Laporan() {
   function simpanOnClick(e) {
     e.preventDefault();
 
-    Fetch('/laporan/add', 'POST', input).then(res => {
+    Fetch('/laporan/add', 'POST', {
+      ...input,
+      tanggal: input.tanggal.slice(0, 10),
+      jam: input.tanggal.slice(11, 16)
+    }).then(res => {
       if(res.success) {
         setLaporan(res.data);
         setMain('View');
@@ -68,7 +72,7 @@ export default function Laporan() {
 
   return (
     <div id='laporan-page' className='page dashboard'>
-      <DashboardComponent />
+      <DashboardComponent setUserType={setUserType} />
       <div className='mainWrapper'>
         <Header />
         <main>
@@ -108,7 +112,7 @@ export default function Laporan() {
                 key: 'status',
                 value: input.status,
                 type: 'select',
-                options: ['']
+                options: ['Permintaan', 'Laporan', 'Selesai']
               }]}
               onChange={(key, value) => setInput({...input, [key]: value})}
               simpanOnClick={simpanOnClick}

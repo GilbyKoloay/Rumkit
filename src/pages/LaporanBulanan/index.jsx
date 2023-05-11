@@ -16,7 +16,7 @@ import { Fetch } from '../../functions';
 
 
 
-export default function LaporanBulanan() {
+export default function LaporanBulanan({ userType, setUserType }) {
   const [main, setMain] = useState('View');
   const [laporanBulanan, setLaporanBulanan] = useState([]);
   const [input, setInput] = useState({});
@@ -65,7 +65,7 @@ export default function LaporanBulanan() {
 
   return (
     <div id='laporanBulanan-page' className='page dashboard'>
-      <DashboardComponent />
+      <DashboardComponent setUserType={setUserType} />
       <div className='mainWrapper'>
         <Header />
         <main>

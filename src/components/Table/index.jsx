@@ -14,14 +14,13 @@ export default function Table({
 }) {
   return (
     <div id='table-component' className='component'>
-      {console.log(data)}
       {(data.length > 0) ? (
         <table>
           <thead>
             <tr>
               <th>No.</th>
               {Object.keys(properties).map((key, index) => (
-                <th key={index}>{keyToLabel(key)}</th>
+                (key !== 'password') && <th key={index}>{keyToLabel(key)}</th>
               ))}
               <th>Action</th>
             </tr>
@@ -31,7 +30,7 @@ export default function Table({
               <tr key={index}>
                 <td>{index+1}</td>
                 {Object.keys(item).map((key, itemIndex) => (
-                  <td key={itemIndex}>{(key !== 'tanggal') ? item[key] : `${new Date(item[key]).toString().slice(0, 15)}`}</td>
+                  (key !== 'password') && <td key={itemIndex}>{item[key]}</td>
                 ))}
                 <td>
                   <button className='change' onClick={() => ubahDataOnClick(index)}>Ubah Data</button>
