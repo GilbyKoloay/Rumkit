@@ -62,7 +62,7 @@ main .changeMainButton:hover {
   opacity: 0.8;
 }
 
-main table,
+main #table-component,
 main form {
   margin-top: 24px;
 }

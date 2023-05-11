@@ -23,9 +23,27 @@ export default function User() {
 
 
 
+  function setInputDefault() {
+    setInput({
+      username: '',
+      password: '',
+      nama: '',
+      level: 'Admin',
+      foto: '',
+    });
+  }
+
   function changeMainOnClick() {
     (main === 'View') && setMain('Input');
     (main === 'Input') && setMain('View');
+  }
+
+  function ubahDataOnClick(index) {
+    console.log('ubahDataOnClick', index);
+  }
+
+  function hapusDataOnClick(index) {
+    Fetch(`/user/delete:${index}`, 'DELETE').then(res => (res.success) && setUser(res.data));
   }
 
   function simpanOnClick(e) {
@@ -37,16 +55,6 @@ export default function User() {
         setMain('View');
         setInputDefault();
       }
-    });
-  }
-
-  function setInputDefault() {
-    setInput({
-      username: '',
-      password: '',
-      nama: '',
-      level: 'Admin',
-      foto: '',
     });
   }
 
@@ -68,7 +76,14 @@ export default function User() {
           {(main === 'View') && <button className='changeMainButton' onClick={changeMainOnClick}>Tambah</button>}
           {(main === 'Input') && <button className='changeMainButton' onClick={changeMainOnClick}>Kembali</button>}
 
-          {(main === 'View') && <Table data={user} />}
+          {(main === 'View') && (
+            <Table
+              properties={input}
+              data={user}
+              ubahDataOnClick={ubahDataOnClick}
+              hapusDataOnClick={hapusDataOnClick}
+            />
+          )}
           {(main === 'Input') && (
             <Form
               list={[{

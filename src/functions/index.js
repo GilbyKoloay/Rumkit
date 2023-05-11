@@ -1,5 +1,6 @@
 // functions
 
 import Fetch from './Fetch';
+import keyToLabel from './keyToLabel';
 
-export { Fetch };
+export { Fetch, keyToLabel };
