@@ -112,7 +112,7 @@ export default function Laporan({ userType, setUserType }) {
                 value: (main === 'input') ? input.unit : (main === 'change') && change.unit
               }, {
                 key: 'tanggal',
-                value: (main === 'input') ? input.tanggal : (main === 'change') && change.tanggal,
+                value: (main === 'input') ? input.tanggal : (main === 'change') && `${change.tanggal}T${change.jam}`,
                 type: 'datetime-local'
               }, {
                 key: 'deskripsi',

@@ -1,6 +1,6 @@
 /* component - header */
 
-#header-component .header {
+header {
   background-color: #ECECEC;
 
   padding: 32px;
@@ -8,12 +8,12 @@
   align-items: center;
 }
 
-#header-component .header .big {
+header .big {
   font-size: 32px;
   font-weight: bold;
 }
 
-#header-component .header .small {
+header .small {
   margin-left: 16px;
 
   font-size: 20px;
