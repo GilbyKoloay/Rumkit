@@ -12,19 +12,19 @@ import userDelete from './controllers/user/delete.js';
 // laporan
 import laporanGetAll from './controllers/laporan/getAll.js';
 import laporanAdd from './controllers/laporan/add.js';
-import laporanChange from './controllers/user/change.js';
+import laporanChange from './controllers/laporan/change.js';
 import laporanDelete from './controllers/laporan/delete.js';
 
 // laporanHarian
 import laporanHarianGetAll from './controllers/laporanHarian/getAll.js';
 import laporanHarianAdd from './controllers/laporanHarian/add.js';
-import laporanHarianChange from './controllers/user/change.js';
+import laporanHarianChange from './controllers/laporanHarian/change.js';
 import laporanHarianDelete from './controllers/laporanHarian/delete.js';
 
 // laporanBulanan
 import laporanBulananGetAll from './controllers/laporanBulanan/getAll.js';
 import laporanBulananAdd from './controllers/laporanBulanan/add.js';
-import laporanBulananChange from './controllers/user/change.js';
+import laporanBulananChange from './controllers/laporanBulanan/change.js';
 import laporanBulananDelete from './controllers/laporanBulanan/delete.js';
 
 
