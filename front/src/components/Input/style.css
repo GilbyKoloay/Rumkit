@@ -1,0 +1,10 @@
+/* component - input */
+
+#input-component {
+  width: 360px;
+  border: 1px solid #ECECEC;
+
+  padding: 20px 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
