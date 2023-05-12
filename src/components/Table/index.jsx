@@ -7,6 +7,7 @@ import { keyToLabel } from '../../functions';
 
 
 export default function Table({
+  userType,
   properties,
   data=[],
   ubahDataOnClick,
@@ -34,7 +35,7 @@ export default function Table({
                 ))}
                 <td>
                   <button className='change' onClick={() => ubahDataOnClick(index)}>Ubah Data</button>
-                  <button className='delete' onClick={() => hapusDataOnClick(index)}>Hapus Data</button>
+                  {(userType === 'Admin') && <button className='delete' onClick={() => hapusDataOnClick(index)}>Hapus Data</button>}
                 </td>
               </tr>
             ))}

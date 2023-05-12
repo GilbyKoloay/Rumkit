@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   BrowserRouter,
   Routes,
@@ -20,10 +20,6 @@ import {
 
 export default function App() {
   const [userType, setUserType] = useState(null);
-
-  useEffect(() => {
-    console.log('userType', userType);
-  });
 
 
 

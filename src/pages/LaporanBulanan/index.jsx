@@ -17,9 +17,11 @@ import { Fetch } from '../../functions';
 
 
 export default function LaporanBulanan({ userType, setUserType }) {
-  const [main, setMain] = useState('View');
+  const [main, setMain] = useState('view');
   const [laporanBulanan, setLaporanBulanan] = useState([]);
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState(null);
+  const [changeIndex, setChangeIndex] = useState(null);
+  const [change, setChange] = useState(null);
 
 
 
@@ -29,28 +31,37 @@ export default function LaporanBulanan({ userType, setUserType }) {
       nama: ''
     });
   }
-  
-  function changeMainOnClick() {
-    console.log('pressed', main);
-    (main === 'View') && setMain('Input');
-    (main === 'Input') && setMain('View');
-  }
 
   function ubahDataOnClick(index) {
-    console.log('ubahDataOnClick', index);
+    setChangeIndex(index);
+    setChange(laporanBulanan[index]);
+    setMain('change');
   }
 
   function hapusDataOnClick(index) {
     Fetch(`/laporanBulanan/delete:${index}`, 'DELETE').then(res => (res.success) && setLaporanBulanan(res.data));
   }
 
-  function simpanOnClick(e) {
+  function tambahOnClick(e) {
     e.preventDefault();
 
     Fetch('/laporanBulanan/add', 'POST', input).then(res => {
       if(res.success) {
         setLaporanBulanan(res.data);
-        setMain('View');
+        setMain('view');
+        setChangeIndex(null);
+        setChange(null);
+      }
+    });
+  }
+
+  function ubahOnClick(e) {
+    e.preventDefault();
+
+    Fetch(`/laporanBulanan/change:${changeIndex}`, 'PATCH', change).then(res => {
+      if(res.success) {
+        setLaporanBulanan(res.data);
+        setMain('view');
         setInputDefault();
       }
     });
@@ -69,30 +80,34 @@ export default function LaporanBulanan({ userType, setUserType }) {
       <div className='mainWrapper'>
         <Header />
         <main>
-          <div className='title'>{(main === 'Input') && 'Tambah '}Data Laporan Bulanan</div>
+          <div className='title'>{(main === 'input') ? 'Tambah ' : (main === 'change') && 'Ubah '}Data Laporan Bulanan</div>
 
-          {(main === 'View') && <button className='changeMainButton' onClick={changeMainOnClick}>Tambah</button>}
-          {(main === 'Input') && <button className='changeMainButton' onClick={changeMainOnClick}>Kembali</button>}
+          {(main === 'view') && <button className='changeMainButton' onClick={() => setMain('input')}>Tambah</button>}
+          {(main !== 'view') && <button className='changeMainButton' onClick={() => setMain('view')}>Kembali</button>}
 
-          {(main === 'View') && (
+          {(main === 'view') ? (
             <Table
+              userType={userType}
               properties={input}
               data={laporanBulanan}
               ubahDataOnClick={ubahDataOnClick}
               hapusDataOnClick={hapusDataOnClick}
             />
-          )}
-          {(main === 'Input') && (
+          ) : (
             <Form
               list={[{
                 key: 'deskripsi',
-                value: input.deskripsi
+                value: (main === 'input') ? input.deskripsi : (main === 'change') && change.deskripsi
               }, {
                 key: 'nama',
-                value: input.nama
+                value: (main === 'input') ? input.nama : (main === 'change') && change.nama
               }]}
-              onChange={(key, value) => setInput({...input, [key]: value})}
-              simpanOnClick={simpanOnClick}
+              onChange={(key, value) => {
+                (main === 'input') ? setInput({...input, [key]: value}) :
+                (main === 'change') && setChange({...change, [key]: value})
+              }}
+              buttonLabel={(main === 'input') ? 'Tambah' : (main === 'change') && 'Ubah'}
+              buttonOnClick={value => (main === 'input') ? tambahOnClick(value) : (main === 'change') && ubahOnClick(value)}
             />
           )}
         </main>

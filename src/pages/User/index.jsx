@@ -17,9 +17,11 @@ import { Fetch, encrypt } from '../../functions';
 
 
 export default function User({ userType, setUserType }) {
-  const [main, setMain] = useState('View');
+  const [main, setMain] = useState('view');
   const [user, setUser] = useState([]);
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState(null);
+  const [changeIndex, setChangeIndex] = useState(null);
+  const [change, setChange] = useState(null);
 
 
 
@@ -33,27 +35,37 @@ export default function User({ userType, setUserType }) {
     });
   }
 
-  function changeMainOnClick() {
-    (main === 'View') && setMain('Input');
-    (main === 'Input') && setMain('View');
-  }
-
   function ubahDataOnClick(index) {
-    console.log('ubahDataOnClick', index);
+    setChangeIndex(index);
+    setChange(user[index]);
+    setMain('change');
   }
 
   function hapusDataOnClick(index) {
     Fetch(`/user/delete:${index}`, 'DELETE').then(res => (res.success) && setUser(res.data));
   }
 
-  function simpanOnClick(e) {
+  function tambahOnClick(e) {
     e.preventDefault();
 
     Fetch('/user/add', 'POST', {...input, password: encrypt(input.password)}).then(res => {
       if(res.success) {
         setUser(res.data);
-        setMain('View');
+        setMain('view');
         setInputDefault();
+      }
+    });
+  }
+
+  function ubahOnClick(e) {
+    e.preventDefault();
+
+    Fetch(`/user/change:${changeIndex}`, 'PATCH', {...change, password: encrypt(change.password)}).then(res => {
+      if(res.success) {
+        setUser(res.data);
+        setMain('view');
+        setChangeIndex(null);
+        setChange(null);
       }
     });
   }
@@ -71,43 +83,47 @@ export default function User({ userType, setUserType }) {
       <div className='mainWrapper'>
         <Header />
         <main>
-          <div className='title'>{(main === 'Input') && 'Tambah '}Data User</div>
+          <div className='title'>{(main === 'input') ? 'Tambah ' : (main === 'change') && 'Ubah '}Data User</div>
 
-          {(main === 'View') && <button className='changeMainButton' onClick={changeMainOnClick}>Tambah</button>}
-          {(main === 'Input') && <button className='changeMainButton' onClick={changeMainOnClick}>Kembali</button>}
+          {(main === 'view') && <button className='changeMainButton' onClick={() => setMain('input')}>Tambah</button>}
+          {(main !== 'view') && <button className='changeMainButton' onClick={() => setMain('view')}>Kembali</button>}
 
-          {(main === 'View') && (
+          {(main === 'view') ? (
             <Table
+              userType={userType}
               properties={input}
               data={user}
               ubahDataOnClick={ubahDataOnClick}
               hapusDataOnClick={hapusDataOnClick}
             />
-          )}
-          {(main === 'Input') && (
+          ) : (
             <Form
               list={[{
                 key: 'username',
-                value: input.username
+                value: (main === 'input') ? input.username : (main === 'change') && change.username
               }, {
                 key: 'password',
-                value: input.password,
+                value: (main === 'input') ? input.password : (main === 'change') && change.password,
                 type: 'password'
               }, {
                 key: 'nama',
-                value: input.nama
+                value: (main === 'input') ? input.nama : (main === 'change') && change.nama
               }, {
                 key: 'level',
-                value: input.level,
+                value: (main === 'input') ? input.level : (main === 'change') && change.level,
                 type: 'select',
                 options: ['Admin', 'User']
               }, {
                 key: 'foto',
-                value: input.foto,
+                value: (main === 'input') ? input.foto : (main === 'change') && change.foto,
                 type: 'file'
               }]}
-              onChange={(key, value) => setInput({...input, [key]: value})}
-              simpanOnClick={simpanOnClick}
+              onChange={(key, value) => {
+                (main === 'input') ? setInput({...input, [key]: value}) :
+                (main === 'change') && setChange({...change, [key]: value})
+              }}
+              buttonLabel={(main === 'input') ? 'Tambah' : (main === 'change') && 'Ubah'}
+              buttonOnClick={value => (main === 'input') ? tambahOnClick(value) : (main === 'change') && ubahOnClick(value)}
             />
           )}
         </main>

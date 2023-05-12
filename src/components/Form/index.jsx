@@ -6,7 +6,12 @@ import { keyToLabel } from '../../functions';
 
 
 
-export default function Form({ list=null, onChange=value => console.log(`<form onChange=${value}>`), simpanOnClick=() => console.log('<form simpanOnClick>') }) {
+export default function Form({
+  list=null,
+  onChange=value => console.log(`<form onChange=${value}>`),
+  buttonLabel='<form buttonLabel>',
+  buttonOnClick=() => console.log('<form buttonOnClick>')
+}) {
   return (
     <form id='form-component' className='component'>
       {(list) && list.map((item, index) => (
@@ -25,7 +30,7 @@ export default function Form({ list=null, onChange=value => console.log(`<form o
         </div>
       ))}
 
-      <button type='submit' className='simpanButton' onClick={e => simpanOnClick(e)}>Simpan</button>
+      <button type='submit' className='simpanButton' onClick={e => buttonOnClick(e)}>{buttonLabel}</button>
     </form>
   );
 };
