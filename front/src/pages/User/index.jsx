@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// styles
-import './style.css';
-
 // components
 import {
   Dashboard as DashboardComponent,
@@ -47,6 +44,12 @@ export default function User({ userType, setUserType }) {
 
   function tambahOnClick(e) {
     e.preventDefault();
+    
+    // const data = new FormData();
+    // Object.entries(input).forEach(([key, value]) => {
+    //   if (key === 'password') data.append(key, encrypt(value));
+    //   else data.append(key, value);
+    // });
 
     Fetch('/user/add', 'POST', {...input, password: encrypt(input.password)}).then(res => {
       if(res.success) {
@@ -55,6 +58,11 @@ export default function User({ userType, setUserType }) {
         setInputDefault();
       }
     });
+
+    // fetch('http://localhost:3001/api/user/add', {
+    //   method: 'POST',
+    //   headers: {'Content-type': 'application/json'}
+    // });
   }
 
   function ubahOnClick(e) {
@@ -79,7 +87,7 @@ export default function User({ userType, setUserType }) {
 
   return (
     <div id='user-page' className='page dashboard'>
-      <DashboardComponent setUserType={setUserType} />
+      <DashboardComponent userType={userType} setUserType={setUserType} />
       <div className='mainWrapper'>
         <Header />
         <main>

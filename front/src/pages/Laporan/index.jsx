@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// styles
-import './style.css';
-
 // components
 import {
   Dashboard as DashboardComponent,
@@ -88,7 +85,7 @@ export default function Laporan({ userType, setUserType }) {
 
   return (
     <div id='laporan-page' className='page dashboard'>
-      <DashboardComponent setUserType={setUserType} />
+      <DashboardComponent userType={userType} setUserType={setUserType} />
       <div className='mainWrapper'>
         <Header />
         <main>

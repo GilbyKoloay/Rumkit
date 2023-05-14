@@ -7,11 +7,11 @@ import { keyToLabel } from '../../functions';
 
 
 export default function Table({
-  userType,
+  userType='visitor',
   properties,
   data=[],
-  ubahDataOnClick,
-  hapusDataOnClick
+  ubahDataOnClick=null,
+  hapusDataOnClick=null
 }) {
   return (
     <div id='table-component' className='component'>
@@ -23,7 +23,7 @@ export default function Table({
               {Object.keys(properties).map((key, index) => (
                 (key !== 'password') && <th key={index}>{keyToLabel(key)}</th>
               ))}
-              <th>Action</th>
+              {(userType !== 'visitor') && <th>Action</th>}
             </tr>
           </thead>
           <tbody>
@@ -33,10 +33,12 @@ export default function Table({
                 {Object.keys(item).map((key, itemIndex) => (
                   (key !== 'password') && <td key={itemIndex}>{item[key]}</td>
                 ))}
-                <td>
-                  <button className='change' onClick={() => ubahDataOnClick(index)}>Ubah Data</button>
-                  {(userType === 'Admin') && <button className='delete' onClick={() => hapusDataOnClick(index)}>Hapus Data</button>}
-                </td>
+                {(userType !== 'visitor') && (
+                  <td>
+                    <button className='change' onClick={() => ubahDataOnClick(index)}>Ubah Data</button>
+                    {(userType === 'Admin') && <button className='delete' onClick={() => hapusDataOnClick(index)}>Hapus Data</button>}
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

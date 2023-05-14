@@ -8,7 +8,7 @@ export default async function Fetch(url, method='GET', body=null) {
     headers: {'Content-type': 'application/json'}
   };
 
-  if(body !== null) init.body = JSON.stringify(body);
+  if(body) init.body = JSON.stringify(body);
   
   try {
     const req = await fetch(`http://localhost:${PORT}/api${url}`, init);

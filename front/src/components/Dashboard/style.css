@@ -44,8 +44,8 @@
   opacity: 0.8;
 }
 
-#dashboard-component .exitButton {
+#dashboard-component .signButton {
   margin-top: 36px;
   
-  color: var(--signOutColor);
+  color: var(--signColor);
 }

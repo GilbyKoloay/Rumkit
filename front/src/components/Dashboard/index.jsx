@@ -6,12 +6,9 @@ import './style.css';
 // images
 import { Dashboard as DashboardImage } from '../../assets/images';
 
-// icons
-import { Home } from '../../assets/icons';
 
 
-
-export default function Dashboard({ setUserType }) {
+export default function Dashboard({ userType='visitor', setUserType }) {
   const navigate = useNavigate();
 
 
@@ -24,7 +21,7 @@ export default function Dashboard({ setUserType }) {
     navigate('/user');
   }
 
-  function laporanOnClick() {
+  function notVisitorlaporanOnClick() {
     navigate('/laporan');
   }
 
@@ -41,6 +38,14 @@ export default function Dashboard({ setUserType }) {
     navigate('/login');
   }
 
+  function visitorLaporanOnClick() {
+    navigate('/depan');
+  }
+
+  function signInOnClick() {
+    navigate('/login');
+  }
+
 
 
   return (
@@ -52,12 +57,20 @@ export default function Dashboard({ setUserType }) {
         <div className='text'>Dashboard</div>
       </div>
 
-      <div className='button' onClick={userOnClick}>User</div>
-      <div className='button' onClick={laporanOnClick}>Laporan</div>
-      <div className='button' onClick={laporanHarianOnClick}>Laporan Harian</div>
-      <div className='button' onClick={laporanBulananOnClick}>Laporan Bulanan</div>
-
-      <div className='exitButton button' onClick={signOutOnClick}>Sign Out</div>
+      {(userType !== 'visitor') ? (
+        <>
+          <div className='button' onClick={userOnClick}>User</div>
+          <div className='button' onClick={notVisitorlaporanOnClick}>Laporan</div>
+          <div className='button' onClick={laporanHarianOnClick}>Laporan Harian</div>
+          <div className='button' onClick={laporanBulananOnClick}>Laporan Bulanan</div>
+          <div className='signButton button' onClick={signOutOnClick}>Sign Out</div>
+        </>
+      ) : (
+        <>
+          <div className='button' onClick={visitorLaporanOnClick}>Laporan</div>
+          <div className='signButton button' onClick={signInOnClick}>Sign In</div>
+        </>
+      )}
     </div>
   );
 };

@@ -20,6 +20,7 @@ export default function Login({ setUserType }) {
 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const [loginErrorMessage, setLoginErrorMessage] = useState(false);
 
 
 
@@ -33,6 +34,9 @@ export default function Login({ setUserType }) {
       if(res.success) {
         setUserType(res.data);
         navigate('/dashboard');
+      }
+      else {
+        setLoginErrorMessage(res.desc);
       }
     });
   }
@@ -50,6 +54,9 @@ export default function Login({ setUserType }) {
           value={password}
           onChange={setPassword}
         />
+        <div className='loginErrorMessage'>
+          <div>{loginErrorMessage}</div>
+        </div>
         <button type='submit' onClick={e => loginOnClick(e)}>LOGIN</button>
       </form>
     </div>

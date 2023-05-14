@@ -1,5 +1,6 @@
 // pages
 
+import Depan from './Depan';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import User from './User';
@@ -8,6 +9,7 @@ import LaporanHarian from './LaporanHarian';
 import LaporanBulanan from './LaporanBulanan';
 
 export {
+  Depan,
   Login,
   Dashboard,
   User,

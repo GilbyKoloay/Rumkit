@@ -1,8 +1,12 @@
-# FRONT
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/_regnaOld
+/_regna
+/_rumkit
+/_ref
+
 # dependencies
-/front/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
@@ -22,8 +26,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-
-
-# BACK
-/back/node_modules

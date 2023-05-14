@@ -25,7 +25,12 @@ export default function Form({
               ))}
             </select>
           ) : (
-            <input type={item.type} value={item.value} onChange={e => onChange(item.key, e.target.value)} />
+            <input
+              type={item.type}
+              accept='.jpg'
+              value={(item.type === 'file') ? undefined : item.value}
+              onChange={e => onChange(item.key, (item.type === 'file') ? e.target.files[0] : e.target.value)}
+            />
           )}
         </div>
       ))}

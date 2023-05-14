@@ -8,6 +8,7 @@ import {
 
 // pages
 import {
+  Depan,
   Login,
   Dashboard,
   User,
@@ -19,7 +20,7 @@ import {
 
 
 export default function App() {
-  const [userType, setUserType] = useState(null);
+  const [userType, setUserType] = useState('visitor');
 
 
 
@@ -27,10 +28,10 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login setUserType={setUserType} />} />
-        {(userType) ? (
+        <Route path='/dashboard' element={<Dashboard userType={userType} setUserType={setUserType} />} />
+        {(userType !== 'visitor') ? (
           <>
             <Route path='*' element={<Navigate to='/dashboard' />} />
-            <Route path='/dashboard' element={<Dashboard userType={userType} setUserType={setUserType} />} />
             <Route path='/user' element={<User userType={userType} setUserType={setUserType} />} />
             <Route path='/laporan' element={<Laporan userType={userType} setUserType={setUserType} />} />
             <Route path='/laporan-harian' element={<LaporanHarian userType={userType} setUserType={setUserType} />} />
@@ -38,7 +39,8 @@ export default function App() {
           </>
         ) : (
           <>
-            <Route path='*' element={<Navigate to='/login' />} />
+            <Route path='*' element={<Navigate to='/depan' />} />
+            <Route path='/depan' element={<Depan userType='visitor' />} />
           </>
         )}
       </Routes>
